@@ -1,0 +1,302 @@
+{
+    "info": {
+      "name": "Family Subscription App API Collection with Session Cookie",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Family Routes",
+        "item": [
+          {
+            "name": "Create Family",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Cookie",
+                  "value": "next-auth.session-token={{session_token}}",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/family/create",
+                "host": [
+                  "http://localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "family",
+                  "create"
+                ]
+              },
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"managerEmail\": \"manager@example.com\",\n  \"planName\": \"Basic Plan\"\n}"
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Add Family Member",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Cookie",
+                  "value": "next-auth.session-token={{session_token}}",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/family/add-member",
+                "host": [
+                  "http://localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "family",
+                  "add-member"
+                ]
+              },
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"managerEmail\": \"manager@example.com\",\n  \"memberEmail\": \"member@example.com\"\n}"
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Family Details",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Cookie",
+                  "value": "next-auth.session-token={{session_token}}",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/family/:managerEmail",
+                "host": [
+                  "http://localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "family",
+                  ":managerEmail"
+                ],
+                "variable": [
+                  {
+                    "key": "managerEmail",
+                    "value": "manager@example.com"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Remove Family Member",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Cookie",
+                  "value": "next-auth.session-token={{session_token}}",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/family/remove-member",
+                "host": [
+                  "http://localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "family",
+                  "remove-member"
+                ]
+              },
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"managerEmail\": \"manager@example.com\",\n  \"memberEmail\": \"member@example.com\"\n}"
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Plan Routes",
+        "item": [
+          {
+            "name": "Create Plan",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Cookie",
+                  "value": "next-auth.session-token={{session_token}}",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/plan",
+                "host": [
+                  "http://localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "plan"
+                ]
+              },
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"Premium Plan\",\n  \"memberLimit\": 5\n}"
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Plan Details",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Cookie",
+                  "value": "next-auth.session-token={{session_token}}",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/plan/:planId",
+                "host": [
+                  "http://localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "plan",
+                  ":planId"
+                ],
+                "variable": [
+                  {
+                    "key": "planId",
+                    "value": "1"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Plan",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Cookie",
+                  "value": "next-auth.session-token={{session_token}}",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/plan/:planId",
+                "host": [
+                  "http://localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "plan",
+                  ":planId"
+                ],
+                "variable": [
+                  {
+                    "key": "planId",
+                    "value": "1"
+                  }
+                ]
+              },
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"Updated Plan\",\n  \"memberLimit\": 10\n}"
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Plan",
+            "request": {
+              "method": "DELETE",
+              "header": [
+                {
+                  "key": "Cookie",
+                  "value": "next-auth.session-token={{session_token}}",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/plan/:planId",
+                "host": [
+                  "http://localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "plan",
+                  ":planId"
+                ],
+                "variable": [
+                  {
+                    "key": "planId",
+                    "value": "1"
+                  }
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ]
+  }
+  
