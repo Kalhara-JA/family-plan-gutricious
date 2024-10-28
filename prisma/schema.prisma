@@ -1,0 +1,31 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Family {
+  id       Int           @id @default(autoincrement())
+  manager  String        @unique
+  members  FamilyMember[]
+  planId   Int
+  plan     Plan          @relation(fields: [planId], references: [id])
+}
+
+model FamilyMember {
+  id         Int    @id @default(autoincrement())
+  email      String @unique
+  familyId   Int
+  family     Family @relation(fields: [familyId], references: [id])
+  isManager  Boolean @default(false)
+}
+
+model Plan {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  memberLimit Int
+  families    Family[]
+}
